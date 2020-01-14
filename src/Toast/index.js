@@ -11,6 +11,7 @@ export default class Toast extends React.Component{
     render(){
         return (<div>
             <ToastContainer
+            onClick={this.notify}
             position="bottom-center"
             autoClose={5000}
             hideProgressBar={true}

@@ -6,10 +6,23 @@ import Header from "./Header/index.js";
 import NovoUsuario from "./NovoUsuario/index.js";
 import Toast from "./Toast/index.js";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 class App extends React.Component {
   
   constructor(props){
     super(props);
+
+    toast.configure({
+      autoClose: 4000,
+      draggable: false,
+      //etc you get the idea
+    });
+  }
+
+  notificar(){
+    toast.success("hey friend!");
   }
 
   render(){
@@ -17,8 +30,10 @@ class App extends React.Component {
       <div>
         <Header></Header>
         <div className="content">
-          <NovoUsuario erro={msg => this.refs.toast.erro(msg)} />
-          <Toast ></Toast>
+          <NovoUsuario />
+          
+          <button onClick={this.notificar}>Notify !</button>
+          <ToastContainer />
         </div>
       </div>
     );
