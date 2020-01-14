@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 export default class Toast extends React.Component{
 
     constructor(props){
-
+        super(props);
     }
 
     render(){

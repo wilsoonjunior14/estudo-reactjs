@@ -17,7 +17,7 @@ class App extends React.Component {
       <div>
         <Header></Header>
         <div className="content">
-          <NovoUsuario />
+          <NovoUsuario erro={msg => this.refs.toast.erro(msg)} />
           <Toast ></Toast>
         </div>
       </div>

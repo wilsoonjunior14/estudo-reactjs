@@ -17,7 +17,8 @@ export default class NovoUsuario extends React.Component{
             validacao: {
               nomeValido: true,
               sexoInvalido: true
-            }
+            },
+            primeiraVisaoCompleta: false
         };
     }
 
@@ -47,6 +48,26 @@ export default class NovoUsuario extends React.Component{
         
         validacao.sexoInvalido = usuario.validarSexo();
         validacao.nomeValido = usuario.validarNome();
+
+        let mensagem = "";
+        let primeiraVisaoCompleta = false;
+        if (!validacao.sexoInvalido && !validacao.nomeValido){
+            mensagem = "Nome e Sexo estão inválidos!";
+        }else if (validacao.sexoInvalido && !validacao.nomeValido){
+            mensagem = "Nome está inválido!";
+        }else if (!validacao.sexoInvalido && validacao.nomeValido){
+            mensagem = "Sexo está inválido!";
+        }else{
+            primeiraVisaoCompleta = true;   
+        }
+
+        if (!primeiraVisaoCompleta){
+            this.props.erro(mensagem);
+        }
+
+        this.setState({
+
+        });
 
         this.setState({
             validacao: validacao
