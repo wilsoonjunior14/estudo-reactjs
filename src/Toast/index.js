@@ -6,18 +6,25 @@ export default class Toast extends React.Component{
 
     constructor(props){
         super(props);
+
+        toast.configure({
+            draggable: false,
+            autoClose: 3000,
+            hideProgressBar: false
+        });
+    }
+
+    erro(message){
+        toast.error(message);
+    }
+
+    sucesso(message){
+        toast.success(message);
     }
 
     render(){
         return (<div>
-            <ToastContainer
-            onClick={this.notify}
-            position="bottom-center"
-            autoClose={5000}
-            hideProgressBar={true}
-            closeOnClick
-            pauseOnHover>
-
+            <ToastContainer>
             </ToastContainer>
         </div>);
     }

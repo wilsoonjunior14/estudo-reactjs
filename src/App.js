@@ -13,16 +13,6 @@ class App extends React.Component {
   
   constructor(props){
     super(props);
-
-    toast.configure({
-      autoClose: 4000,
-      draggable: false,
-      //etc you get the idea
-    });
-  }
-
-  notificar(){
-    toast.success("hey friend!");
   }
 
   render(){
@@ -30,10 +20,10 @@ class App extends React.Component {
       <div>
         <Header></Header>
         <div className="content">
-          <NovoUsuario />
+          <NovoUsuario
+          erro={msg => this.refs.toast.erro(msg)} />
           
-          <button onClick={this.notificar}>Notify !</button>
-          <ToastContainer />
+          <Toast ref="toast"></Toast>
         </div>
       </div>
     );
